@@ -2,24 +2,28 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>改變所有列的底色</title>
+	<title>改變所有列的底色 CSS and JQuery</title>
 	<script src="jquery-3.3.1.min.js"></script>
+
+	<!--
+		Create odd and even row's class.
+		odd row: color purple
+		even row: color gray
+	-->
+	<style>
+		#type {width:200px; border-collapse:collapse}
+		#type td {text-align: center; border:1px solid purple}
+		#type th {background-color: purple; color: white; border:1px solid purple}
+		.odd{background-color: #CCBBFF;}
+		.even{background-color: #DDDDDD;}
+	</style>
 	<script>
 		/**
 			When website load, execute the following code.
 		*/
 		$(document).ready(function (){
-			$("table").css({
-				"border-collapse": "collapse",
-				"border": "1px solid purple",
-				"text-align": "center"
-			});
-			$("tr:odd").css({
-				"background-color": "#CCBBFF"
-			});
-			$("tr:even").css({
-				"background-color": "#DDDDDD"
-			});
+			$("type tr:odd").addClass("old");
+			$("type tr:even").addClass("even");
 		})
 	</script>
 	<!--
@@ -38,7 +42,7 @@
 	-->
 </head>
 <body>
-	<form name="peopleTall_table" id="peopleTall_table">
+	<form id="type">
 		<table border="2" width="200px">
 			<tr>
 				<th>座號</th><th>身高</th>

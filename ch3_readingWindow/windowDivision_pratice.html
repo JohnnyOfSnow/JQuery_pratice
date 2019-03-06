@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Window Division Pratice</title>
+	
+	<style>
+		#menu{font-weight: bold; font-family: 微軟正黑體; text-align: center; font-size: 20px}
+		#content{width: 80%; margin: auto; line-height: 20px}
+		a:link{text-decoration: none; color: black}
+		a:visited{color: purple}
+		a:hover{color: purple}
+		a:active{text-decoration: underline}
+	</style>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#a1").click(function(){
+				$("#content").hide()
+			})
+			$("#a2").click(function(){
+				$("#content").show()
+			})
+			$("#a3").click(function(){
+				$("#content").toggle()
+			})
+		})
+	</script>
+</head>
+<body>
+	<div>
+		<div id="menu">
+			<a id="a1" href="#">隱藏</a>
+			<a id="a2" href="#">顯示</a>
+			<a id="a3" href="#">切換</a>
+		</div>
+		<div id="content">
+			<!--
+				&nbsp; a space
+			-->
+			<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;描繪未來的自己要成為怎樣的人，為此盡力的過程中碰到的瓶頸，定會改變自己生活的方式，並且脫離以想像改變自己的日子，這是晴生在學生們畢業前，決定要教給她們的珍貴事物。
+				<br>
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;夜間學校被晴生比擬社會輟學者的聚集地，是因為自己曾是在理想與現實中努力疊合的失敗者，逃避以及感傷的想法放在初見的學生們，那暗沈的神情就像是訴說著自己是遠離光亮的白日，而只能託身於夜晚世界的狀態，只要覺得每天有進步一點就足夠，而沒有想要替自己的成長做些改變，至此，提出課外活動的晴生，是希望她們有著能為自己做些什麼的念頭，並且不再設限自己與一般人處於不同世界而不能擁有這樣的體驗。
+				<br>
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;舉辦的夜空觀測，望向在空中閃耀的星星暗喻這些學生想要尋得的希望，然而，光是望著是不夠的，試著幫助她們面對心中的問題，以及找尋新的生活方式，則是遊戲的三條個人線中詳加描述的內容，はやて尋找著能夠信賴以及信賴自己的人，以及時常懷疑自己做的抉擇是否正確；りこ可以為了守護自己所愛的事物而不顧及自己的感受；而きな相信能擁有的平凡幸福，卻因為他人的干涉而破壞。
+				<br>
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;晴生給予她們的答案均是見到新生活方式的自己，改變的契機阻斷繼續逃避的生活，各自從中尋找到的珍貴事物，除了幫助她們重回光亮世界生活，即便再次回到夜晚世界中探索也不會覺得苦痛，因為有過託付自己並且嘗試改變的經驗，逐漸形成能夠應變處境的自己，最終仰望滿是繁星的夜空時，已經是能夠歡笑的。
+			
+			</p>
+		</div>
+	</div>
+
+</body>
+</html>
