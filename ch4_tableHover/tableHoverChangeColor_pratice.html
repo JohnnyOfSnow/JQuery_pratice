@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Table Hover Change Color</title>
+	<style>
+		#type{border: 1px solid purple; border-collapse: collapse; width: 300px;}
+		#type td{border: 1px solid purple; text-align: center;}
+		#type th{background-color: purple; color: white}
+		.enter{background-color: #0099CC; color: white;}	
+	</style>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		//When Web page is ready, run the following code.
+		$(document).ready(function(){
+			$("#type tr").hover(function(){
+				//this -> the position of mouse in the table
+				$(this).addClass("enter")// When mouse approach the table, let the table background color become blue.
+			},function(){
+				$(this).removeClass("enter")// When mouse exit the table, let the table retrive to original color.
+			})
+		})
+	</script>
+</head>
+<body>
+	<table id="type">
+		<tr>
+			<th>座號</th><th>身高</th>
+		</tr>
+		<tr>
+			<td>1</td><td>130</td>
+		</tr>
+		<tr>
+			<td>2</td><td>140</td>
+		</tr>
+		<tr>
+			<td>3</td><td>145</td>
+		</tr>
+		<tr>
+			<td>4</td><td>150</td>
+		</tr>
+		<tr>
+			<td>5</td><td>155</td>
+		</tr>
+		<tr>
+			<td>6</td><td>160</td>
+		</tr>
+	</table>
+</body>
+</html>
