@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		#all{width: 800px; height: 400px;}
+		#image{}
+		#menu{top: -35px; position: relative;}
+		#menu img{cursor: pointer;}
+	</style>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var n = 0
+			for(i = 0; i < 11; i++){
+				// let i be passed in function
+				$("#menu img:eq(" + i + ")").click({id:i}, function(e){
+					n = e.data.id // data is a keyword
+					change()
+					resetClock()
+				})
+			}
+
+			//When cursor in the image, stop the image carousel.
+			clock = setInterval(auto, 2000)
+			$("#image img").mouseover(function(){
+				clearInterval(clock)
+			})
+
+			//When cursor exit image, should continue to display image.
+			$("#image img").mouseout(function(){
+				clock = setInterval(auto, 2000)
+			})
+			function auto(){
+				n++
+				if(n > 10){
+					n = 0
+				}
+				change()
+			}
+
+			function change(){
+				$("#image").css("background-image", "url(image/iroduku(" + n + ").jpg)")
+				$("#image img").fadeOut(400, function(){
+					$("#image img").attr("src", "image/iroduku("+ n + ").jpg")
+					$("#image img").fadeIn()
+				})
+
+				$("#menu img").attr("src", "image/dot-white.png")
+				$("#menu img:eq(" + n + ")").attr("src", "image/dot.png")
+			}
+
+			function resetClock(){
+				clearInterval(clock)
+				clock = setInterval(auto, 2000)
+			}
+		})
+	</script>
+</head>
+<body>
+	<div id="all">
+		<div id="image"><img src="image/iroduku(0).jpg" width="95%" height="95%"></div>
+		<div id="menu"><img src="image/dot.png"><img src="image/dot-white.png">
+			<img src="image/dot-white.png"><img src="image/dot-white.png"><img src="image/dot-white.png">
+			<img src="image/dot-white.png"><img src="image/dot-white.png"><img src="image/dot-white.png">
+			<img src="image/dot-white.png"><img src="image/dot-white.png"><img src="image/dot-white.png">
+		</div>
+	</div>
+
+</body>
+</html>
