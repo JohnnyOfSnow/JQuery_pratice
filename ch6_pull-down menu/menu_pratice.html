@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<!-- Set all tags to default value by using *{} 
+		# : id
+		. : class
+	-->
+
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#menu{
+			margin: auto;
+		}
+		.main{
+			background-color: #e33535;
+			color: white;
+			font-family: 微軟正黑體;
+			font-weight: bold;
+			font-size: 20px;
+			cursor: pointer;
+			text-align: center;
+			height: 35px;
+			line-height: 35px;
+			width: 150px;
+		}
+		.main:hover{
+			background-color: #aaaaaa;
+		}
+		.sub{
+			background-color: #4d4949;
+			color: white;
+			font-family: 微軟正黑體;
+			font-weight: bold;
+			text-align: center;
+			width: 150px;
+		}
+		.sub li{
+			list-style-type: none;
+			line-height: 25px;
+			border-bottom: 1px solid #777;
+		}
+		.item{
+			float: left;
+		}
+	</style>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			var oldText = ['今日運勢', '編織星故事', '運勢分析介紹', '運勢維度', '語言協助']
+			var newText = ['Today', 'Story', 'Analysis', 'Dimension', 'Language']
+			$(".sub").slideUp(0)// Let all menu close
+
+			for(i=0; i<$(".main").length; i++){
+				//When cursor slide on menu
+				$(".main:eq(" + i + ")").mouseover({id:i}, function(e){
+					n = e.data.id
+					$(".main:eq(" + n + ")").text(newText[n])
+					$(".sub:eq(" + n + ")").slideToggle()
+					$(".sub:not(:eq(" + n + "))").slideUp()//Those menu is not choosed need to hide.
+				})
+				//When cursor exit menu
+				$(".main:eq(" + i + ")").mouseleave({id:i}, function(e){
+					n = e.data.id
+					$(".main:eq(" + n + ")").text(oldText[n])
+				})
+			}
+			$("#menu").css("width", $(".main").length*150)	
+		})
+
+	</script>
+</head>
+<body>
+	<div id="menu">
+		<div class="item">
+			<!-- 第一組清單 -->
+			<div class="main">今日運勢</div>
+			<div class="sub">
+				<ul>
+					<li>生肖排行</li>
+					<li>星座排行</li>
+					<li>特別專欄</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="item">
+			<!-- 第二組清單 -->
+			<div class="main">編織星故事</div>
+			<div class="sub"></div>
+		</div>
+		<div class="item">
+			<!-- 第三組清單 -->
+			<div class="main">運勢分析介紹</div>
+			<div class="sub">
+				<ul>
+					<li>星座篇</li>
+					<li>生肖篇</li>
+					<li>風水篇</li>
+					<li>手相篇</li>
+					<li>方位篇</li>
+				</ul>
+			</div>
+		</div>
+		<div class="item">
+			<!-- 第四組清單 -->
+			<div class="main">運勢維度</div>
+			<div class="sub">
+				<ul>
+					<li>2d</li>
+					<li>3d</li>
+					<li>4d</li>
+				</ul>
+			</div>
+		</div>
+		<div class="item">
+			<!-- 第五組清單 -->
+			<div class="main">語言協助</div>
+			<div class="sub">
+				<ul>
+					<li>中文</li>
+					<li>英文</li>
+					<li>日文</li>
+					<li>法文</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
