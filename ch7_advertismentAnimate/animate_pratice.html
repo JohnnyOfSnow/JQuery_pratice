@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSS animate pratice</title>
+	<style>
+		/* aquamarine:碧綠色 */
+		.show{
+			height: 100px;
+			width: 100px;
+			border-radius: 10px;
+			background-color: aquamarine;
+			position: absolute;
+		}
+	</style>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".show").animate({
+				width: "300px", 
+				height: "300px",
+				left: "100px",
+				top: "100px"
+			})
+		})
+	</script>
+</head>
+<body>
+
+</body>
+	<div class="show">
+		
+	</div>
+</html>

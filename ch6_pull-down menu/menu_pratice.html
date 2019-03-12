@@ -58,8 +58,10 @@
 
 			for(i=0; i<$(".main").length; i++){
 				//When cursor slide on menu
+				//.sub:eq(0): the first of "sub" class defined in document
+				//.sub:eq(1): the second of "sub" class defined in document
 				$(".main:eq(" + i + ")").mouseover({id:i}, function(e){
-					n = e.data.id
+					n = e.data.id// data is a keyword
 					$(".main:eq(" + n + ")").text(newText[n])
 					$(".sub:eq(" + n + ")").slideToggle()
 					$(".sub:not(:eq(" + n + "))").slideUp()//Those menu is not choosed need to hide.
