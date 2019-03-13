@@ -4,58 +4,141 @@
 	<meta charset="utf-8">
 	<title></title>
 	<style>
+		/* Set all tags to default by using *{} */
 		*{
 			padding: 0;
 			margin: 0;
 		}
+
+		/* According to image size to define width.*/
+		/* height = .nav(height) + .nav(margin-bottom) + .nav(margin-top) + .banner(height)*/
+		/* Warning: This code defined page is suit for 4 image below*/
 		#all{
 			width: 683px;
-			height: 474px;
+			height: 464px;
 			margin: auto;
 			overflow: hidden;
 		}
 		.nav{
 			width: 683px;
-			height: 60px;
+			height: 50px;
 			margin-bottom: 10px;
 			margin-top: 20px;
 			border-bottom: 1px solid #07A1D4;
 			padding-bottom: 3px
 		}
+
+		/* list-style-type: remove the "." , if you use li tag.*/
 		.nav li{
 			float: left;
 			list-style-type: none;
 			color: darkgray;
 			font-family: 微軟正黑體;
-			width: 200px;
-			font-size: 18px;
+			width: 150px;
+			font-size: 16px;
 			text-align: center;
 			line-height: 40px;
 			cursor: pointer;
 		}
-		.nav li:hover{
-			font-weight: bold;
-			color: #0785d4
-			font-size: 21px;
-			border-bottom: 4px solid #07A1D4
-		}
+		
+		/* If use animate in JQuery, you should define position*/
 		.banner{
-			width: 2049px;
 			height: 384px;
+			position: relative;
 		}
 		.banner img{
 			float: left;
 		}
 		
 	</style>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+
+			time = 3000
+			img_width = 683
+
+			num_li = $(".nav li").length
+			width_banner = num_li * img_width
+
+
+			$(".banner").css("width", width_banner)
+
+			for(i=0; i<num_li; i++){
+				$(".nav li:eq(" + i + ")").mouseenter({id:i}, function(e){
+					n=e.data.id
+					change()
+				})
+			}
+
+			var clock = setInterval(auto, time);
+
+			n=0
+			function auto(){
+				n++
+				if(n>=num_li){
+					n=0
+				}	
+
+				position=-n*img_width
+				$(".banner").animate({"left": position + "px"}, 400)
+
+				$(".nav li").css({
+					"font-weight": "none",
+					"color": "darkgray",
+					"font-size": "18px",
+					"border-bottom": "none",
+				})
+
+				$(".nav li:eq(" + n + ")").css({
+					"font-weight": "bold",
+					"color": "#0785d4",
+					"font-size": "21px",
+					"border-bottom": "4px solid #07A1D4",
+				})
+			}
+
+			$(".banner img").hover(function(){
+				clearInterval(clock)
+			}, function(){
+				clock = setInterval(auto, time)
+			})
+
+			function change(){
+
+				clearInterval(clock)
+				clock = setInterval(auto, time)
+
+				position2=-n*img_width
+				$(".banner").stop()
+				$(".banner").animate({"left": position2 + "px"}, 400)
+
+				$(".nav li").css({
+					"font-weight": "none",
+					"color": "darkgray",
+					"font-size": "18px",
+					"border-bottom": "none",
+				})
+
+				$(".nav li:eq(" + n + ")").css({
+					"font-weight": "bold",
+					"color": "#0785d4",
+					"font-size": "21px",
+					"border-bottom": "4px solid #07A1D4",
+				})
+			}
+		})
+	</script>
 </head>
 <body>
 	<div id="all">
 		<div class="nav">
 			<ul>
-				<li>夜空煙火</li>
+				<li style="font-weight: bold; color: #0785d4; font-size: 21px; border-bottom: 4px solid #07A1D4">夜空煙火</li>
 				<li>時間列車</li>
 				<li>溫暖小屋</li>
+				<li>水彩畫筆</li>
+				
 			</ul>
 		</div>
 
@@ -63,6 +146,8 @@
 			<img src="image/iroduku(0).jpg">
 			<img src="image/iroduku(1).jpg">
 			<img src="image/iroduku(2).jpg">
+			<img src="image/iroduku(3).jpg">
+			
 		</div>
 	</div>
 
