@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>表單資料驗證練習</title>
 	<style>
-		#nickname{
+		.inputform{
 			border-radius: 5px; /* let textbox have a arc style */
 			border: 1px solid darkgray;
 			height: 25px;
@@ -12,12 +12,90 @@
 			font-family: 微軟正黑體;
 			font-size: 16px;
 			outline: none;
+			margin: 5px 0;
 		}
 	</style>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var NICKNAME_RULE = /^.{3,5}$/;
+			var NUMBER_RULE = /^[A-Z]\d{8}$/;
+			var PHONE_RULE = /^0(2|3|4|5|6|7|8)\d{0,2}-\d{6,8}$/;
+			var MOBILE_RULE = /^09\d{2}-\d{3}-\d{3}$/;
+			//var ADDRESS_RULE = 0;
+
+			
+			$(".inputform").focus(function(){
+				$(this).css("border-color", "#006cff")
+			})
+			
+
+			$("#nickname").blur(function(){
+				if(NICKNAME_RULE.test($("#nickname").val())){
+					$(".error1").text('')
+					$(this).css("border-color", "green")
+					//alert('Correct')
+				}else{
+					$(".error1").text('不符合規則，暱稱需要三到五個字')
+					$(this).css("border-color", "red")
+					//alert('Wrong')
+				}
+			})
+
+			$("#number").blur(function(){
+				if(NUMBER_RULE.test($("#number").val())){
+					$(".error2").text('')
+					$(this).css("border-color", "green")
+					//alert('Correct')
+				}else{
+					$(".error2").text('不符合規則，學號得開頭一個大寫英文字以及8個數字')
+					$(this).css("border-color", "red")
+					//alert('Wrong')
+				}
+			})
+
+			$("#phone").blur(function (){
+				if(PHONE_RULE.test($("#phone").val())){
+					$(".error3").text('')
+					$(this).css("border-color", "green")
+				}else{
+					$(".error3").text("不符合規則,電話號碼要按照區碼-XXXXXX的格式輸入")
+					$(this).css("border-color", "red")
+				}
+			})
+
+			$("#mobile").blur(function(){
+				if(MOBILE_RULE.test($("#mobile").val())){
+					$(".error4").text('')
+					$(this).css("border-color", "green")
+				}else{
+					$(".error4").text("不符合規則,手機號碼要按照09XX-XXX-XXX的格式輸入")
+					$(this).css("border-color", "red")
+				}
+			})
+			/**
+			$("#address").blur(function(){
+				if(ADDRESS_RULE.test($("#address").val())){
+					$(".error5").text('')
+					$(this).css("border-color", "green")
+				}else{
+					$(".error5").text("")
+					$(this).css("border-color", "red")
+				}
+			})
+			*/
+		})
+	</script>
 </head>
 <body>
 	<form>
-		<label for="nickname">暱稱</label>:<input type="text" id="nickname" placeholder="輸入暱稱">
+		<label for="nickname">暱稱</label>:<input type="text" id="nickname"  class="inputform" placeholder="輸入暱稱"><span class="error1"></span><br>
+		<label for="number">學號</label>:<input type="text" id="number" class="inputform" placeholder="輸入學號"><span class="error2"></span><br>
+		<label for="phone">電話</label>:<input type="text" id="phone" class="inputform" placeholder="輸入電話"><span class="error3"></span><br>
+		<label for="mobile">手機</label>:<input type="text" id="mobile" class="inputform" placeholder="輸入手機"><span class="error4"></span><br>
+		<!--
+		<label for="address">地址</label>:<input type="text" id="address" class="inputform" placeholder="輸入地址"><span class="error5"></span><br>
+		-->
 	</form>
 </body>
 </html>
