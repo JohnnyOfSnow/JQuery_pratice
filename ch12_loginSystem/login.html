@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>登入系統練習 Nodejs,JQuery</title>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		function getUserData(){
+			$("#background").css("background-color", "green");
+			//$("#name").css("value", "mushroom");
+			//$("#password").css("value", "123456");
+		}
+	</script>
+</head>
+<body>
+  <form id="loginForm" method="post">
+  	Name:<input type="text" id="name"><br>
+  	Password<input type="text" id="password"><br>
+  	<input type="button" name="submit_button" id="submit_button" value="submit" onclick="getUserData()">
+  </form>
+  <p id="background">123456</p>
+</body>
+</html>
