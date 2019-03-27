@@ -2,27 +2,9 @@
 <html>
 <head>
 	<title>登入系統練習 Nodejs,JQuery</title>
-	<script src="jquery-3.3.1.min.js"></script>
-
-	<script>
-		$("document").ready(function(){
-			$("#submit_button").click(function(){
-				var userId = $("#userId").val();
-				var userMessage = $("#userMessage").val();
-				var reqdata = 
-				//alert("Name: " + userName + " ,Password: " + userPassword);
-				//Give data to the backend.
-  				$.ajax({
-	  				url: '/restful/todo',
-	  				type: 'post',
-	  				data: reqdata
-  				}).done (function (result){
-    				alert('ok!');
-    				//$('#itemset').html (result);
-  				});
-			})
-		})
-	</script>
+	<script script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script script type="text/javascript" src="login.js"></script>
+	
 </head>
 <body>
   <form id="loginForm" method="post">
