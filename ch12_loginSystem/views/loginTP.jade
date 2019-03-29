@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= 'Learning NodeJS how to conbined JQuery ajax'
+  form#loginForm(method='post')
+    | userId:
+    input#userId(type='text')
+    br
+    |   	userMessage
+    input#userMessage(type='text')
+    br
+    input#submit_button(type='button', name='submit_button', value='submit')
+script=(src='./javascripts/login.js')

@@ -1,4 +1,4 @@
-<script>
+
 var express = require ('express');
 var todoRouter = express.Router();
 
@@ -8,18 +8,20 @@ var modelRemove = require ('../model/todoremovedb.js');
 var modelUpdate = require ('../model/todoupdatedb.js');
 
 
-/**
+
 todoRouter.get ('/todo', function (req, res){
+  res.render ('loginTP', {layout: true});
+  /**
   modelQuery.QueryGet({}, function (record){
   	if (req.xhr){//Only first load.
   	  //layout: false-> render a view without using a layout
-  	  res.render ('recordTP', {layout: false, itemlist: record});
+  	  res.render ('loginTP', {layout: false});
   	}else {
-      res.render ('restfulTP', {itemlist: record});
+      res.render ('loginTP', {layout: true});
   	}
-  });
+  });*/
 });
-*/
+
 
 //Create (/restful/todo/)
 todoRouter.post ('/todo', function (req, res){
@@ -68,7 +70,6 @@ todoRouter.use (function (req, res, next){
   console.log ('Something is happen...');
   next ();//Make sure we go to the next routes and don't stop here.
 });
-
-module.exports = todoRouter;
 */
-</script>
+module.exports = todoRouter;
+
