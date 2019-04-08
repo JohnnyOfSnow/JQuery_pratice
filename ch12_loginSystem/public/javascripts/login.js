@@ -1,6 +1,6 @@
 $('document').ready(function(){
 	$('#submit_button').click(function(){
-		alert('Button click');
+		
 		//var userId = $("#userId").val();
 		//var userMessage = $("#userMessage").val();
 		var reqdata = $('#loginForm').find ($('#userMessage')).val ();

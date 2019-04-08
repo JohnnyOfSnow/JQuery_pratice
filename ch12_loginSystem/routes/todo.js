@@ -10,26 +10,31 @@ var modelUpdate = require ('../model/todoupdatedb.js');
 
 
 todoRouter.get ('/todo', function (req, res){
-  res.render ('loginTP', {layout: true});
-  /**
-  modelQuery.QueryGet({}, function (record){
+
+  
+  //modelQuery.QueryGet({}, function (record){
   	if (req.xhr){//Only first load.
   	  //layout: false-> render a view without using a layout
   	  res.render ('loginTP', {layout: false});
   	}else {
       res.render ('loginTP', {layout: true});
   	}
-  });*/
+  //});
 });
 
 
 //Create (/restful/todo/)
 todoRouter.post ('/todo', function (req, res){
-  var dataSet = [{message: req.body.momsg}];
-
+  //var dataSet = [{message: req.body.userMessage}];
+  
+  return res.redirect ('/restful/todo');
+  //alert(req.body.userMessage + 'Submitted Successfully!');
+  /**
   modelCreate.InsertNew (dataSet, function (msg){
   	return res.redirect('/restful/todo');
-  });
+  });*/
+
+
 });
 
 /**
