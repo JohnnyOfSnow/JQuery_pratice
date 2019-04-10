@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= 'Learning NodeJS how to conbined JQuery ajax'
-  form#loginForm(method='post')
+  form#loginForm
     | userId:
     input#userId(type='text')
     br
@@ -10,4 +10,5 @@ block content
     input#userMessage(type='text')
     br
     input#submit_button(type='button', name='submit_button', value='submit')
+    p guest #{display}
 script=(src='./javascripts/login.js')

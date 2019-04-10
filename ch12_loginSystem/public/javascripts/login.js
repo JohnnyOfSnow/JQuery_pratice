@@ -1,10 +1,13 @@
 $('document').ready(function(){
+	var repdata = {};
 	$('#submit_button').click(function(){
+		var getId = $('#loginForm').find ($('#userId')).val ();
+		var getMsg = $('#loginForm').find ($('#userMessage')).val ();
+		console.log ('Id is: ' + getId);
+		console.log ('userMessage is: ' + getMsg);
 		
-		//var userId = $("#userId").val();
-		//var userMessage = $("#userMessage").val();
-		var reqdata = $('#loginForm').find ($('#userMessage')).val ();
-		//alert("Name: " + userName + " ,Password: " + userPassword);
+		reqdata = {'id': getId, 'message': getMsg}// Boxed the data that be converted.
+		
 		//Give data to the backend.
 		$.ajax({
 			url: '/restful/todo',

@@ -1,4 +1,4 @@
-
+var receiveData = 'guest';
 var express = require ('express');
 var todoRouter = express.Router();
 
@@ -10,13 +10,17 @@ var modelUpdate = require ('../model/todoupdatedb.js');
 
 
 todoRouter.get ('/todo', function (req, res){
-
   
   //modelQuery.QueryGet({}, function (record){
-  	if (req.xhr){//Only first load.
-  	  //layout: false-> render a view without using a layout
-  	  res.render ('loginTP', {layout: false});
+
+    var isAjaxRequest = req.xhr;
+  	if (isAjaxRequest){//If hava an Ajax request
+      console.log('Ajax request!!');
+      console.log ('receiveData is: ' + receiveData);
+      //layout: false-> render a view without using a layout
+      res.render ('loginTP', {layout: false, display: 24});
   	}else {
+      console.log('load Page!');
       res.render ('loginTP', {layout: true});
   	}
   //});
@@ -25,8 +29,8 @@ todoRouter.get ('/todo', function (req, res){
 
 //Create (/restful/todo/)
 todoRouter.post ('/todo', function (req, res){
-  //var dataSet = [{message: req.body.userMessage}];
-  
+
+  receiveData = req.body.message;//receive the data from front-end
   return res.redirect ('/restful/todo');
   //alert(req.body.userMessage + 'Submitted Successfully!');
   /**
