@@ -1,4 +1,4 @@
-var receiveData = "guest";
+var receiveData = 'guest';
 var express = require ('express');
 var todoRouter = express.Router();
 
@@ -17,11 +17,12 @@ todoRouter.get ('/todo', function (req, res){
   	if (isAjaxRequest){//If hava an Ajax request
       console.log('Ajax request!!');
       console.log (typeof "receiveData");
+
       //layout: false-> render a view without using a layout
-      res.render ('loginTP', {layout: false, display: receiveData});
+      res.render ('loginTP', {layout: true, display: '11'});
   	}else {
       console.log('load Page!');
-      res.render ('loginTP', {layout: true, display: "15"});
+      res.render ('loginTP', {layout: true, display: receiveData});
   	}
   //});
 });
