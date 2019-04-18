@@ -9,7 +9,7 @@ var modelUpdate = require ('../model/todoupdatedb.js');
 
 
 
-todoRouter.get ('/todo', function (req, res){
+todoRouter.get ('/login', function (req, res){
   
   //modelQuery.QueryGet({}, function (record){
 
@@ -19,28 +19,29 @@ todoRouter.get ('/todo', function (req, res){
       console.log (typeof "receiveData");
 
       //layout: false-> render a view without using a layout
-      res.render ('loginTP', {layout: true, display: '11'});
+      res.render ('recordTP', {layout: false, display: receiveData});
   	}else {
       console.log('load Page!');
-      res.render ('loginTP', {layout: true, display: receiveData});
+      res.render ('loginTP', {display: receiveData});
   	}
   //});
 });
 
 
 //Create (/restful/todo/)
-todoRouter.post ('/todo', function (req, res){
+todoRouter.post ('/login', function (req, res){
 
   receiveData = req.body.message;//receive the data from front-end
-  return res.redirect ('/restful/todo');
+  return res.redirect ('/restful/login');
   //alert(req.body.userMessage + 'Submitted Successfully!');
   /**
   modelCreate.InsertNew (dataSet, function (msg){
   	return res.redirect('/restful/todo');
   });*/
 
-
 });
+
+
 
 /**
 //Read (/restful/todo/:id)
