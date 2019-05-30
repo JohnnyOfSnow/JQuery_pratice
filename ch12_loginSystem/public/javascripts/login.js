@@ -13,8 +13,9 @@ $('document').ready(function(){
 			url: '/restful/login',
 			type: 'post',
 			data: reqdata
-		}).done (function (result){
+		}).done (function (result){ // result => A web page.
 			alert('ok!');
+			$('#ajaxData').text(reqdata.id);
 			//$('#itemset').html (result);
 		});
 	})
