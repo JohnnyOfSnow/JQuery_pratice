@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= 'User DATA'
+  form#loginForm
+    | userId:
+    input#userId(type='text')
+    br
+    |   	userMessage
+    input#userMessage(type='text')
+    br
+    input#submit_button(type='button', name='submit_button', value='submit')
+    p #{display}
+script=(src='./javascripts/login.js')

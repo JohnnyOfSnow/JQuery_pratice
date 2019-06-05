@@ -19,7 +19,7 @@ todoRouter.get ('/login', function (req, res){
       console.log (typeof "receiveData");
 
       //layout: false-> render a view without using a layout
-      res.render ('loginTP', {layout: false, display: receiveData});
+      res.render ('userTP', {display: receiveData});
   	}else {
       console.log('load Page!');
       res.render ('loginTP', {display: receiveData});
