@@ -1,0 +1,12 @@
+extends ./layout
+
+block page-header
+  h1= 'Person list'
+
+block content
+  h1= 'Learning RESTful by To'
+  input#MsgTB(type='text', name='MsgTB')
+  button#plus.btn.btn-default.btn-sm(type='button')
+    span.glyphicon.glyphicon-plus(aria-hidden= 'true')
+  button#search.btn.btn-default.btn-sm(type='button')
+    span.glyphicon.glyphicon-search(aria-hidden= 'true')
